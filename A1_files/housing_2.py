@@ -20,7 +20,7 @@ def rmse(t, tp):
 
 # (b) fit linear regression using only the first feature
 model_single = linreg.LinearRegression()
-model_single.fit(X_train[:,0], t_train)
+model_single.fit(X_train[:,0:1], t_train)
 
 #weights printout and interpretation
 print("\nWeights for single-feature model (CRIM only):")
@@ -44,7 +44,7 @@ for i, name in enumerate(feature_names):
 
 # (d) evaluation of results
 
-t_pred_single = model_single.predict(X_test[:,0])
+t_pred_single = model_single.predict(X_test[:,0:1])
 rmse_single = rmse(t_test, t_pred_single)
 t_pred_all = model_all.predict(X_test)
 rmse_all = rmse(t_test, t_pred_all)
